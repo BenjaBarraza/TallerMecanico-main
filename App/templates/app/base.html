@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<link rel="shortcut icon" href="{% static '/img/fondologo/logo2.png' %}" type="image/x-icon">
+<body>
+
+    <style>
+        body {
+          background-color: #000000;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+          background-attachment: fixed;
+          background-size: cover;
+        }
+      </style>
+
+    <!--Logo-->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static '/img/fondologo/logo2.png' %}" alt="Logo" width="100" height="100"
+                    class="d-inline-block align-text-top">
+                <a />
+                <!--MENU-->
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Categorias
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="{% url 'atenciones' %}">Atenciones</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'electroauto' %}">Electrónica
+                                                Automotriz</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'cajacambio' %}">Caja de cambios</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'susydireccion' %}">Suspensión y
+                                                dirección</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="{% url 'servciogeneral' %}">Servicio general
+                                                vehículo</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'galeriafotos' %}">Galeria de fotos</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'mecanicos' %}">Mecanicos</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+                                </li>
+                                
+                                {% if user.is_authenticated %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="#">@{{user.username}}</a>
+                                </li>
+                                    {% if user.is_staff %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="/admin">Administración</a>
+                                    </li>
+                                    {% endif %}
+                                {% else %}
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link" href="{% url 'registro' %}">registro</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+        </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% if messages %}
+        {% for m in messages %}
+            <script>
+                Swal.fire({
+                    "title": "Felicitaciones",
+                    "text": "{{m}}",
+                    "icon": "success"
+                })
+            </script>
+        {% endfor %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+
+
+
+</body>
+
+<footer>
+    <!--FOOTER CON BOOTSTRAP-->
+    <div class="container-fluid">
+        <div class="row p-5 bg-dark text-white">
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h3">Taller Rayo MCqueen</p>
+                <img src="{% static '/img/fondologo/logo2.png' %}" alt="Logo" width="200" height="200"
+                    class="d-inline-block align-text-top">
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3 mb-3">Social</p>
+                <div class="mb-2">
+                    <a class="nav-link" href="https://www.facebook.com/profile.php?id=100091678300845">Facebook</a>
+                </div>
+                <div class="mb-2">
+                    <a class="nav-link" href="https://www.instagram.com/tallerrayomcqeen">Instagram</a>
+                </div>
+                <div class="mb-2">
+                    <a class="nav-link" href="https://twitter.com/?lang=es">Twitter</a>
+                </div>
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3">Documentos</p>
+                <div class="mb-2">
+                    <a class="nav-link" href="terminosycondiciones.html">Terminos y condiciónes</a>
+                </div>
+                <div class="mb-2">
+                    <a class="nav-link" href="politicadeprivacidad.html">Políticas de privacidad</a>
+                </div>
+                <div class="mb-2">
+                    <a class="nav-link" href="#">Garantia</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+                <p class="h5 mb-3">Contactanos</p>
+                <div class="mb-2">
+                    <a class="nav-link" href="#">fono: +56925468532</a>
+                </div>
+                <div class="mb-2">
+                    <a class="nav-link" href="#">TallerMCqueen@Mecanicos.cl</a>
+                </div>
+            </div>
+            <div class="col-xs-12-pt-4">
+                <p class="text-white text-center">Copyright - All rights reseverd 2023</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+    {% block footer %}
+
+    {% endblock %}
+</footer>
+
+</html>

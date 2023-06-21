@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        body {
+          background-color: #000000;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+          background-attachment: fixed;
+          background-size: cover;
+        }
+      </style>
+    
+
+ 
+
+    <div class="imagen-container">
+        <h3 class="text-white text-center text-decoration-underline fw-bolder fs-1">Información sobre Jose luis</h3>
+        <p class=" text-white fs-4 text-center">Especialidad: Mecanico Especialista en  servicio de Electronica Automotriz </p>
+        <p class=" text-white fs-4 text-center">Nombre: Jose Luis </p>
+        <p class=" text-white fs-4 text-center text-center">Edad: 34 años</p>
+    <img class="img rounded mx-auto d-block" src="{% static '/img/mecanicos/mecanico1.jpg' %}" alt="">
+    </div>
+    
+{% endblock %}

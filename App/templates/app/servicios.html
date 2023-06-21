@@ -1,0 +1,106 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+        body {
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+
+        .cart-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            color: black;
+            border:transparent;
+            cursor: pointer;
+          }
+          
+          .cart-btn img {
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+          }
+          
+          .cart-btn:hover {
+            background-color: #fff;
+          }        
+    </style>
+
+
+    <div class="container">
+        <h1 class="text-center text-white fs-1 fw-bold text-decoration-underline">Servicios disponibles</h1>
+    </div>
+
+    <div class=" container text-center ">
+        <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static '/img/Costos/sistemasuspension.jpg' %}" class="img-fluid rounded-start img-thumbnail" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-black">Sistema de Suspensión</h5>
+                        <p class="card-text text-black">El sistema de suspensión de un automóvil se compone de varios
+                            componentes diseñados para mantener las ruedas del vehículo en contacto con el suelo y
+                            proporcionar una conducción suave y cómoda</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0 ">
+                <div class="col-md-4 ">
+                    <img src="{% static '/img/Costos/cajadecambio.jpg' %}" class="img-fluid rounded-start img-thumbnail" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-black">Automatica y Manual</h5>
+                        <p class="card-text text-black">Hacemos el cambio que usted necesite o se acomode a sus necesidades, de caja automatica a manual o de manual a automatica como usted guste.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static '/img/Costos/electronicaautomotriz.jpg' %}" class="img-fluid rounded-start img-thumbnail" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-black">Electronica Automotriz</h5>
+                        <p class="card-text text-black">Hacemos todo tipo de arreglos , en el motor, el encendido, la radio, las computadoras, la telematica, los sistemas de entretenimiento en el automovil y otros.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{% static '/img/Costos/mecanicageneral.jpg' %}" class="img-fluid rounded-start img-thumbnail" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title text-black">Mecanica General</h5>
+                        <p class="card-text text-black">Nos encargamos del mantenimiento, reparacion y diagnostico de su vehiculo como por ejemplo: cambios de aceite y filtro, servicio de frenos, servicios de suspension, reparacion de sistemas electricos y reparaciones de sistemas de transmision.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}
+{% block footer %}
+
+{% endblock %}
+
