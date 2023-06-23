@@ -1,0 +1,20 @@
+UserName: JoseLuis
+contraseña:mecanico1.
+
+UserName:PedroGonzalez
+contraseña:mecanico2.
+
+UserName:RicardoAceituno
+contraseña:mecanico3.
+
+UserName:DiegoSalamanca
+contraseña:mecanico4.
+
+UserName:JuanSalgado
+contraseña:mecanico5.
+
+UserName:RobertoMiranda
+contraseña:mecanico6.
+
+UserName: admin
+contraseña: admin
