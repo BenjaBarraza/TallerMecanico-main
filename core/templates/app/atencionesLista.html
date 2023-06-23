@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <script>
-    function eliminar_producto(id){
+    function eliminar(id){
         Swal.fire({
             "title":'¿Desea eliminar la atencion seleccionada?',
             "text": 'una vez eliminado no se puede deshacer el cambio',
@@ -69,7 +69,7 @@
                             {% endif %}
                             <td>
                                 <a href="{% url 'atencionModificar' a.id %}" class="btn btn-info">Modificar</a>
-                                <a href="#" onclick="eliminar_producto({{ a.id }})" class="btn btn-danger">Eliminar</a>
+                                <a href="#" onclick="eliminar({{ a.id }})" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>                    
                     </tbody>
@@ -82,6 +82,11 @@
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+
 
 
 

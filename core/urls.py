@@ -28,4 +28,6 @@ urlpatterns = [
     path('servciogeneral/', servciogeneral, name='servciogeneral'),
     path('susydireccion/', susydireccion, name='susydireccion'),
     path('registro/', registro, name="registro"),
+    path('atencionesAPI/', AtecionesAPIView.as_view(), name='atencionesAPI'),
+    path('atencionesAPI/<int:id>', AtecionesAPIView.as_view(), name='atencionAPI_id'),
 ]

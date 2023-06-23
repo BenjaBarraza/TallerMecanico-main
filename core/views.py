@@ -7,6 +7,12 @@ from .models import Categoria,Atencion
 from django.contrib.auth.models import User
 import json
 import os
+from rest_framework.views import APIView
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
+from rest_framework import status
+from .serilizer import AtencionesSerilizer
 
 
 def index(request):
@@ -187,3 +193,22 @@ def susydireccion(request):
     data={'categoria':categorias}
     return render(request, 'app/susydireccion.html',data)
 
+
+class AtecionesAPIView(APIView):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get(self,request, id=None):
+        if id is not None:
+            listaAtecniones = Atencion.objects.filter(id=id).values()
+            if len(listaAtecniones) > 0:
+                atecion = listaAtecniones[0]
+                return Response(atecion, status=status.HTTP_200_OK)
+            else:
+                return Response({'message': 'Atencion no encontrada'},status=status.HTTP_404_NOT_FOUND)
+        else:
+            atecion = Atencion.objects.all()
+            serializer = AtencionesSerilizer(atecion, many=True)
+            return Response(serializer.data,status=status.HTTP_200_OK)
