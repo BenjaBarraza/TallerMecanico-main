@@ -48,18 +48,11 @@
                                         aria-expanded="false">
                                         Categorias
                                     </a>
+                                    {% for c in categoria %}
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{% url 'atenciones' %}">Atenciones</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'electroauto' %}">Electrónica
-                                                Automotriz</a></li>
-                                        <li><a class="dropdown-item" href="{% url 'cajacambio' %}">Caja de cambios</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="{% url 'susydireccion' %}">Suspensión y
-                                                dirección</a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="{% url 'servciogeneral' %}">Servicio general
-                                                vehículo</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'categoria' c.id %}">{{c.nombre}}</a></li>
                                     </ul>
+                                    {% endfor %}
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'galeriafotos' %}">Galeria de fotos</a>
@@ -67,22 +60,35 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'mecanicos' %}">Mecanicos</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
-                                </li>
+
                                 
                                 {% if user.is_authenticated %}
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="#">@{{user.username}}</a>
                                 </li>
-                                    {% if user.is_staff %}
+                                   
+                                    <!--
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="/admin">Administración</a>
-                                    </li>
-                                    {% endif %}
+                                    </li>-->
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Menú
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="nav-link" href="{% url 'atenciones' user.id %}">Registrar Atencion</a></li>
+                                        {% if user.is_staff %}
+                                        <li class="nav-item dropdown"><a class="nav-link" href="{% url 'atenciones_lsitado' %}">Listado Atenciones</a></li>
+                                        <li><a class="nav-link" href="{% url 'registro' %}">Registrar Usuario</a></li>
+                                        {% endif %}
+                                    </ul>
+                                </li>
+
                                 {% else %}
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>

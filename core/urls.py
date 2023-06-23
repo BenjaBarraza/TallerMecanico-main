@@ -4,7 +4,11 @@ from .views import *
 urlpatterns = [
     path('', index, name='index'),
     path('login/', login, name='login'),
-    path('atenciones/', atenciones, name='atenciones'),
+    path('atenciones/<id_mecanico>', atenciones, name='atenciones'),
+    path('atenciones_listado/',atencionesLista , name='atenciones_lsitado'),
+    path('atencionModificar/<id>',atencionModificar , name='atencionModificar'),
+    path('eliminaratecnion/<id>/',atencionEliminar, name='eliminaratecnion'),
+    path('categoria/<id>', categoria, name='categoria'),
     path('auto1/', auto1, name='auto1'),
     path('auto2/', auto2, name='auto2'),
     path('auto3/', auto3, name='auto3'),
@@ -22,7 +26,6 @@ urlpatterns = [
     path('mecanico6/', mecanico6, name='mecanico6'),
     path('mecanicos/', mecanicos, name='mecanicos'),
     path('servciogeneral/', servciogeneral, name='servciogeneral'),
-    path('servicios/', servicios, name='servicios'),
     path('susydireccion/', susydireccion, name='susydireccion'),
     path('registro/', registro, name="registro"),
 ]

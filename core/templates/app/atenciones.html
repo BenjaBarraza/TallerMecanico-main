@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <style>
+    body {
+      background-color: #000000;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row g-3">
+      <div class="col-12">
+          <div class="form-floating">
+          <input type="text" class="form-control" name="nombre-mecanico" value="{{user.id}}" disabled>
+          <label name="mecanico" for="mecanico">{{mecanico.first_name}} {{mecanico.last_name}}</label>
+          </div>
+      </div>
+      <div class="col-12">
+          <div class="form-floating">
+              <input type="text" class="form-control" name="nombre-cliente" placeholder="Nombre cliente">
+              <label for="nombre-producto">Nombre Ciente</label>
+          </div>
+      </div>
+      <div class="col-12">
+          <div class="form-floating">
+              <input type="text" class="form-control" name="descripcion" placeholder="descripcion de atencion">
+              <label for="descripcion-producto">Descripcion</label>
+          </div>
+      </div>
+    </div>
+    <div class="col-12">
+        <div class="col-12">
+            <label for="categoria">Categoria</label>
+            <div class="form-floating">
+                <select class="form-select" name="categoria" aria-label="Default select example">
+                    {% for c in categoria %}
+                    <option value="{{c.id}}">{{c.nombre}}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+        </div>
+    </div>
+      <div class="col-12">
+          <div class="form-floating">
+              <input type="file" class="form-control" name="imagen" accept="image/png, .jpeg, .jpg" multiple placeholder="imagen" >
+              <label for="imagen-producto">imagen</label>
+          </div>
+
+      <div class="col-12">
+          <input class="btn btn-primary rounded-pill py-3 px-5" type="submit">
+      </div>
+  </div>
+</form>
+    
+   
+  </div>
+{% endblock %}

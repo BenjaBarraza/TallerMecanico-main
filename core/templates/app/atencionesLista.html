@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<script>
+    function eliminar_producto(id){
+        Swal.fire({
+            "title":'¿Desea eliminar la atencion seleccionada?',
+            "text": 'una vez eliminado no se puede deshacer el cambio',
+            "icon": 'question',
+            "showCancelButton": true,
+            "cancelButtonText": "Cancelar",
+            "confirmButtonText": "Aceptar",
+            "reverseButtons": true,
+            "confirmButtonColor": "#dc3545",
+            "cancelButtonColor": "#198754"
+        })
+        .then(function(result){
+            
+            if(result.isConfirmed){
+                window.location.href= "/eliminaratecnion/"+id+"/"
+            }
+
+
+        })
+
+    }
+
+
+</script>
+
+<div class="col-12 d-flex justify-content-center">
+    <div class="row ">    
+        <div class="card">
+                <div class="card-body"> 
+                <h1>Listado de Atenciones</h1>
+                <table class="table table-stripped table-hover table-responsive-sm clearfix">
+                    <thead class="thead-dark">
+                        <tr>   
+                            <th>ID</th>
+                            <th>Mecanico</th>
+                            <th>Nombre Cliente</th>
+                            <th>Descripcion</th>
+                            <th>Categoria</th>
+                            <th>Aprobacion</th>
+                        </tr>
+                            {% for a in atenciones %}
+                        <tr>                        
+                            <td>{{ a.id }}</td>
+                            {% for m in mecanicos %}
+                                {% if a.mecanico_id == m.id %}
+                                <td>{{ m.first_name }} {{ m.last_name }}</td>
+                                {% endif %}
+                            {% endfor %}
+                            <td>{{ a.nombreCliente  }}</td>
+                            <td>{{ a.Descripcion}}</td>
+                            {% for c in categoria %}
+                                    {% if c.id == a.categoria_id %}
+                                    <td>{{ c.nombre }}</td>
+                                    {% endif %}
+                            {% endfor %}
+
+                            {% if a.aprovacion == None %}
+                            <td>Pendiente</td>
+                            {% elif a.aprovacion == True %}
+                            <td>Aceptado</td>
+                            {% elif a.aprovacion == False %}
+                            <td>Rechazado</td>
+                            {% endif %}
+                            <td>
+                                <a href="{% url 'atencionModificar' a.id %}" class="btn btn-info">Modificar</a>
+                                <a href="#" onclick="eliminar_producto({{ a.id }})" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>                    
+                    </tbody>
+                    {% endfor %}
+                </table>
+                <hr>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

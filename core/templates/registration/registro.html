@@ -24,10 +24,9 @@
 
                         {% csrf_token %}
                         {{ form | crispy }}
-                        <a href="{% url 'index' %}">Ir al home</a>
-                        <a href="{% url 'login' %}">Iniciar Sesión</a>
+
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <input type="submit" value="ingresar" class="btn btn-primary me-md-2">
+                            <input type="submit" value="Registrar" class="btn btn-primary me-md-2">
                         </div>
                         
 
