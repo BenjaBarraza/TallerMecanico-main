@@ -11,7 +11,8 @@
     }
   </style>
 
-
+<br>
+<br>
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="row g-3">
@@ -21,22 +22,22 @@
           <label name="mecanico" for="mecanico">{{mecanico.first_name}} {{mecanico.last_name}}</label>
           </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 ">
           <div class="form-floating">
               <input type="text" class="form-control" name="nombre-cliente" placeholder="Nombre cliente">
               <label for="nombre-producto">Nombre Ciente</label>
           </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 ">
           <div class="form-floating">
               <input type="text" class="form-control" name="descripcion" placeholder="descripcion de atencion">
               <label for="descripcion-producto">Descripcion</label>
           </div>
       </div>
     </div>
-    <div class="col-12">
-        <div class="col-12">
-            <label for="categoria">Categoria</label>
+    <div class="col-12 ">
+        <div class="col-12 ">
+            <label for="categoria" class="text-white">Categoria</label>
             <div class="form-floating">
                 <select class="form-select" name="categoria" aria-label="Default select example">
                     {% for c in categoria %}
@@ -46,18 +47,19 @@
             </div>
         </div>
     </div>
-      <div class="col-12">
+      <div class="col-12 ">
           <div class="form-floating">
               <input type="file" class="form-control" name="imagen" accept="image/png, .jpeg, .jpg" multiple placeholder="imagen" >
               <label for="imagen-producto">imagen</label>
           </div>
 
-      <div class="col-12">
+      <div class="col-12 ">
+        <br>
           <input class="btn btn-primary rounded-pill py-3 px-5" type="submit">
       </div>
   </div>
 </form>
-    
-   
   </div>
+  <br>
+  <br>
 {% endblock %}

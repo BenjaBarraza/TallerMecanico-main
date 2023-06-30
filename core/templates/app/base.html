@@ -43,43 +43,38 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'index' %}">Inicio</a>
                                 </li>
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                         aria-expanded="false">
-                                        Categorias
+                                        Servicios
                                     </a>
                                     {% for c in categoria %}
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{% url 'categoria' c.id %}">{{c.nombre}}</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'electroauto' %}">Electro Auto</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'cajacambio'  %}">Caja De Cambio</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'servciogeneral'  %}">Servicios Generales</a></li>
+                                        <li><a class="dropdown-item" href="{% url 'susydireccion'  %}">Suspension y Direccion</a></li>
                                     </ul>
                                     {% endfor %}
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{% url 'galeriafotos' %}">Galeria de fotos</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{% url 'mecanicos' %}">Mecanicos</a>
-                                </li>
-
-                                
                                 {% if user.is_authenticated %}
-
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesión</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="#">@{{user.username}}</a>
                                 </li>
-                                   
-                                    <!--
+                                
+                                    <!--PARA QUE EN EL NAVBAR APARESCA EL ADMINISTRADOR DE DJANGO-->
                                     <li class="nav-item dropdown">
                                         <a class="nav-link" href="/admin">Administración</a>
-                                    </li>-->
+                                    </li>
+                                    <!---->
+
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        Menú
-                                    </a>
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"aria-expanded="false">Menú</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="nav-link" href="{% url 'atenciones' user.id %}">Registrar Atencion</a></li>
                                         {% if user.is_staff %}
@@ -125,6 +120,7 @@
     {% endblock %}
 
 
+   
 
 </body>
 
