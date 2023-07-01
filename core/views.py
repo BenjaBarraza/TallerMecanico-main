@@ -102,35 +102,6 @@ def categoria(request,id):
     data={'categoria':categorias,'categ':categ[0]}
     return render(request, 'app/categoria.html',data)
 
-def auto1(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto1.html',data)
-
-def auto2(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto2.html',data)
-
-def auto3(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto3.html',data)
-
-def auto4(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto4.html',data)
-
-def auto5(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto5.html',data)
-
-def auto6(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/auto6.html',data)
 
 def cajacambio(request):
     categorias = list(Categoria.objects.all().values())   
@@ -141,46 +112,6 @@ def electroauto(request):
     categorias = list(Categoria.objects.all().values())   
     data={'categoria':categorias}
     return render(request, 'app/electroauto.html',data)
-
-def galeriafotos(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/galeriafotos.html',data)
-
-def mecanico1(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico1.html',data)
-
-def mecanico2(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico2.html',data)
-
-def mecanico3(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico3.html',data)
-
-def mecanico4(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico4.html',data)
-
-def mecanico5(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico5.html',data)
-
-def mecanico6(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanico6.html',data)
-
-def mecanicos(request):
-    categorias = list(Categoria.objects.all().values())   
-    data={'categoria':categorias}
-    return render(request, 'app/mecanicos.html',data)
 
 def servciogeneral(request):
     categorias = list(Categoria.objects.all().values())   
